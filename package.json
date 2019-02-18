@@ -1,0 +1,40 @@
+{
+  "name": "@edsdk/imgpen-example",
+  "version": "1.0.0",
+  "description": "Examples of ImgPen image editor usage in web applications and websites",
+  "scripts": {
+    "build": "webpack",
+    "run": "node server.js",
+    "start": "npm i && npm run build && npm run run",
+    "prepublish": "npm run build"
+  },
+  "author": "https://imgpen.com",
+  "license": "BSD",
+  "devDependencies": {
+    "css-loader": "^2.1.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3",
+    "webpack": "^4.29.4",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "@edsdk/file-uploader-microservice": "^1.0.5",
+    "@edsdk/imgpen": "^1.0.3",
+    "bootstrap": "^4.3.1"
+  },
+  "keywords": [
+    "imgpen",
+    "image",
+    "photo",
+    "editor",
+    "file",
+    "uploader",
+    "client",
+    "server",
+    "microservice"
+  ]
+}

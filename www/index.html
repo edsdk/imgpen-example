@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="imgpen-example.js"></script>
+	<link rel="stylesheet" href="imgpen-example.css"/>
+	<meta charset="UTF-8">
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-4">
+				<h4>Example 1. Editing image by &lt;img&gt; tag</h4>
+				<p>
+					If you click the image on this demo Image Editor is opened.
+				</p>
+				<p>
+					When you save result image it is being uploaded to the server with updating the source image.
+				</p>
+			</div>
+			<div class="col-8">
+				<img id="img" src="images/desktop.png" alt="Desktop sample image"/>
+				<p class="small">
+					Click on image to edit it
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4">
+				<h4>Example 2. Editing image by URL</h4>
+				<p>Image specified in URL textfield will be edited when you click a button.</p>
+				<p>After you save an image it will be shown as preview, textfield URL will be also updated.</p>
+				<p>So if you want to edit external image in any case you will get link to your own website.</p>
+				<p>Note. If you paste external URL here, the external server must have correctly configured CORS policy.</p>
+			</div>
+			<div class="col-8">
+				<p>
+					URL of image: <input id="url" value="images/desktop.png">
+					<button id="btn">Edit image</button><br>
+					<img id="preview" src="images/desktop.png"/>
+				</p>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

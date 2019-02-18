@@ -1,0 +1,44 @@
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    color: #333;
+}
+
+p {
+    font-size: 15px;
+    line-height: 19px;
+    margin: 13px 0;
+}
+
+.col-4 {
+    background-color: #F8F8F8;
+}
+.col-4, .col-8 {
+    padding: 40px;
+}
+
+.small {
+    font-size: 12px;
+}
+
+.row:not(:first-child) {
+    border-top: 2px solid #DDD;
+}
+
+#img {
+    border: 3px solid #007FFF;
+    &:hover {
+        border-color: orange;
+        cursor: pointer;
+    }
+}
+
+#url {
+    width: 300px;
+}
+
+#preview {
+    border: #EEE 1px solid;
+    width: 300px;
+    margin-top: 20px;
+}
