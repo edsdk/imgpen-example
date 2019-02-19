@@ -1,4 +1,4 @@
-import * as ImageEditor from "@edsdk/image-editor"
+import * as ImgPen from "@edsdk/imgpen"
 
 // Attach listeners when page is loaded
 window.addEventListener("DOMContentLoaded", function() {
@@ -16,17 +16,16 @@ window.addEventListener("DOMContentLoaded", function() {
         elText.textContent = "Loading...";
 
         // Edit and image
-        ImageEditor.editImage(
-            elImg.src,   // URL of image we edit
-            "/uploader", // URL of uploader
-            "/images",   // URL prefix for generating path to the images
-            "",          // Dir on server for result image (from uploader root directory)
-            (urlImage: string) => {
+        ImgPen.editImage({
+            urlImage: elImg.src,      // URL of image we edit
+            urlUploader: "/uploader", // URL of uploader
+            urlFiles: "/images",      // URL of uploaded files are stored on
+            onSave: (url: string) => {
                 // Image was edited and saved, update image element on page
-                elImg.src = urlImage;
+                elImg.src = url;
                 elText.textContent = "Image updated";
             }
-        );
+        });
 
     });
 
@@ -42,16 +41,15 @@ window.addEventListener("DOMContentLoaded", function() {
     elBtn.addEventListener("click", function() {
 
         // Edit the image when the button is clicked
-        ImageEditor.editImage(
-            elUrl.value, // URL of image we edit
-            "/uploader", // URL of uploader
-            "/images",   // URL prefix for generating path to the images
-            "",          // Dir on server for result image (from uploader root directory)
-            (urlImage: string) => {
-                elUrl.value = urlImage; // Update URL in the textbox
+        ImgPen.editImage({
+            urlImage: elUrl.value,    // URL of image we edit
+            urlUploader: "/uploader", // URL of uploader
+            urlFiles: "/images",      // URL prefix for generating path to the images
+            onSave: (urlImage: string) => {
+                elUrl.value = urlImage;   // Update URL in the textbox
                 elPreview.src = urlImage; // Update image preview
             }
-        );
+        });
 
     });
 

@@ -14,8 +14,8 @@ Project can be built with Webpack and ran instantly after you download it, no ot
 1. Clone this repository:
 
 ```text
-git clone https://github.com/edsdk/imgpen-examples
-cd imgpen-examples
+git clone https://github.com/edsdk/imgpen-example
+cd imgpen-example
 ```
 
 2. Build and run it

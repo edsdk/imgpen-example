@@ -86,19 +86,19 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/@edsdk/image-editor/dist/imageeditorsdk.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@edsdk/image-editor/dist/imageeditorsdk.js ***!
-  \*****************************************************************/
+/***/ "./node_modules/@edsdk/imgpen/dist/image-editor.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@edsdk/imgpen/dist/image-editor.js ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-exports.__esModule = true;
-function editImage(urlImg, urlUploader, urlFiles, destinationDir, onSaveListener) {
-    includeJS('//cdn.imageeditorsdk.com/imageeditorsdk.js', function () {
-        window.ImageEditorSDK.editImage(urlImg, urlUploader, urlFiles, destinationDir, onSaveListener);
+Object.defineProperty(exports, "__esModule", { value: true });
+function editImage(conf) {
+    includeJS('//cdn.imgpen.com/imageeditorsdk.js', function () {
+        window.ImageEditorSDK.editImage(conf.urlImage, conf.urlUploader, conf.urlFiles, conf.dirDestination, conf.onSave);
     });
 }
 exports.editImage = editImage;
@@ -150,7 +150,7 @@ function includeJS(url, onIncluded) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const ImageEditor = __webpack_require__(/*! @edsdk/image-editor */ "./node_modules/@edsdk/image-editor/dist/imageeditorsdk.js");
+const ImgPen = __webpack_require__(/*! @edsdk/imgpen */ "./node_modules/@edsdk/imgpen/dist/image-editor.js");
 // Attach listeners when page is loaded
 window.addEventListener("DOMContentLoaded", function () {
     // ----------------------
@@ -163,14 +163,15 @@ window.addEventListener("DOMContentLoaded", function () {
         let elText = elImg.nextElementSibling;
         elText.textContent = "Loading...";
         // Edit and image
-        ImageEditor.editImage(elImg.src, // URL of image we edit
-        "/uploader", // URL of uploader
-        "/images", // URL prefix for generating path to the images
-        "", // Dir on server for result image (from uploader root directory)
-        (urlImage) => {
-            // Image was edited and saved, update image element on page
-            elImg.src = urlImage;
-            elText.textContent = "Image updated";
+        ImgPen.editImage({
+            urlImage: elImg.src,
+            urlUploader: "/uploader",
+            urlFiles: "/images",
+            onSave: (url) => {
+                // Image was edited and saved, update image element on page
+                elImg.src = url;
+                elText.textContent = "Image updated";
+            }
         });
     });
     // ----------------------
@@ -182,13 +183,14 @@ window.addEventListener("DOMContentLoaded", function () {
     // Attach to the button
     elBtn.addEventListener("click", function () {
         // Edit the image when the button is clicked
-        ImageEditor.editImage(elUrl.value, // URL of image we edit
-        "/uploader", // URL of uploader
-        "/images", // URL prefix for generating path to the images
-        "", // Dir on server for result image (from uploader root directory)
-        (urlImage) => {
-            elUrl.value = urlImage; // Update URL in the textbox
-            elPreview.src = urlImage; // Update image preview
+        ImgPen.editImage({
+            urlImage: elUrl.value,
+            urlUploader: "/uploader",
+            urlFiles: "/images",
+            onSave: (urlImage) => {
+                elUrl.value = urlImage; // Update URL in the textbox
+                elPreview.src = urlImage; // Update image preview
+            }
         });
     });
     let urlChanged = () => {
