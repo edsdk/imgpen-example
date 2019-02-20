@@ -97,8 +97,8 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 function editImage(conf) {
-    includeJS('//cdn.imgpen.com/imageeditorsdk.js', function () {
-        window.ImageEditorSDK.editImage(conf.urlImage, conf.urlUploader, conf.urlFiles, conf.dirDestination, conf.onSave);
+    includeJS('//cdn.imgpen.com/imgpen.js', function () {
+        window.ImgPen.editImage(conf.urlImage, conf.urlUploader, conf.urlFiles, conf.dirDestination, conf.onSave);
     });
 }
 exports.editImage = editImage;
