@@ -22,8 +22,8 @@
     "webpack-cli": "^3.2.3"
   },
   "dependencies": {
-    "@edsdk/file-uploader-microservice": "^1.0.5",
-    "@edsdk/imgpen": "^1.0.3",
+    "@edsdk/file-uploader-microservice": "^1.0.7",
+    "@edsdk/imgpen": "^1.0.4",
     "bootstrap": "^4.3.1"
   },
   "keywords": [
