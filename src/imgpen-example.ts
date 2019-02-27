@@ -1,5 +1,7 @@
 import * as ImgPen from "@edsdk/imgpen"
 
+ImgPen.preload(); // Optional. Just for loading scripts before you click "Edit button" to speed up the first open
+
 // Attach listeners when page is loaded
 window.addEventListener("DOMContentLoaded", function() {
 

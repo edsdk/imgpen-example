@@ -97,12 +97,21 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 function editImage(conf) {
-    includeJS('//cdn.imgpen.com/imgpen.js', function () {
+    preload(() => {
         window.ImgPen.editImage(conf.urlImage, conf.urlUploader, conf.urlFiles, conf.dirDestination, conf.onSave);
     });
 }
 exports.editImage = editImage;
-function includeJS(url, onIncluded) {
+function preload(onLoaded) {
+    includeJS('//cdn.imgpen.com/imgpen.js', () => {
+        window.ImgPen.load(() => {
+            if (onLoaded)
+                onLoaded();
+        });
+    });
+}
+exports.preload = preload;
+function includeJS(url, onLoaded) {
     var scripts = document.getElementsByTagName("script");
     var alreadyExists = false;
     for (var i = 0; i < scripts.length; i++) {
@@ -113,18 +122,18 @@ function includeJS(url, onIncluded) {
     if (!alreadyExists) {
         var script = document.createElement("script");
         script.type = "text/javascript";
-        if (onIncluded != null) {
+        if (onLoaded) {
             if (script.readyState) {
                 script.onreadystatechange = function () {
                     if (script.readyState === "loaded" || script.readyState === "complete") {
                         script.onreadystatechange = null;
-                        onIncluded();
+                        onLoaded();
                     }
                 };
             }
             else {
                 script.onload = function () {
-                    onIncluded();
+                    onLoaded();
                 };
             }
         }
@@ -132,8 +141,8 @@ function includeJS(url, onIncluded) {
         document.getElementsByTagName("head")[0].appendChild(script);
     }
     else {
-        if (onIncluded != null)
-            onIncluded();
+        if (onLoaded)
+            onLoaded();
     }
 }
 
@@ -151,6 +160,7 @@ function includeJS(url, onIncluded) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 const ImgPen = __webpack_require__(/*! @edsdk/imgpen */ "./node_modules/@edsdk/imgpen/dist/image-editor.js");
+ImgPen.preload(); // Optional. Just for loading scripts before you click "Edit button" to speed up the first open
 // Attach listeners when page is loaded
 window.addEventListener("DOMContentLoaded", function () {
     // ----------------------
