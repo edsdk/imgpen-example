@@ -1,6 +1,6 @@
 {
   "name": "@edsdk/imgpen-example",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Examples of ImgPen image editor usage in web applications and websites",
   "scripts": {
     "build": "webpack",
