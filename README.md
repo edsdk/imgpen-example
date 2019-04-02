@@ -34,14 +34,13 @@ There are two simple examples inside this demo, you can check there TypeScript s
 
 Examples let you to edit images and upload them into `www/images` directory.
 
-In your project you will use the same [File Uploader](https://npmjs.com/package/@edsdk/file-uploader-server) backend (other supported languages: PHP, Java, ASP.NET, etc), probably as [microservice](https://npmjs.com/package/@edsdk/file-uploader-microservice).
+In your project you will use the same [File Uploader](https://npmjs.com/package/@edsdk/file-uploader-server) backend (other supported languages: PHP, Java, etc), probably as microservice.
 
 
 ## See Also
 
 - [ImgPen website](https://imgpen.com)
 - [File Uploader server for Express](https://npmjs.com/package/@edsdk/file-uploader-server)
-- [File Uploader microservice](https://npmjs.com/package/@edsdk/file-uploader-microservice)
 - [ImgPen package](https://npmjs.com/package/@edsdk/imgpen)
 
 ## License

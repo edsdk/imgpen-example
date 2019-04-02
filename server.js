@@ -10,7 +10,7 @@
 
 */
 
-require("@edsdk/file-uploader-microservice").startFileUploaderMicroservice({
+require("@edsdk/file-uploader-server").startFileUploaderMicroservice({
     host: 'localhost',
     port: 8080,
     urlUploader: '/uploader',

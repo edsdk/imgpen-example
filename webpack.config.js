@@ -57,7 +57,7 @@ module.exports = {
             "Do not edit this generated file please.\n\n" +
 
             "Developer: EdSDK\n" +
-            "Website: https://n1ed.com/\n" +
+            "Website: https://imgpen.com/\n" +
             "License: Commercial EdSDK license\n"
         )
     ]

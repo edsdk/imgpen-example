@@ -4,7 +4,7 @@
  * Do not edit this generated file please.
  * 
  * Developer: EdSDK
- * Website: https://n1ed.com/
+ * Website: https://imgpen.com/
  * License: Commercial EdSDK license
  * 
  */
